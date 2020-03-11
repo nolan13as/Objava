@@ -1,0 +1,15 @@
+{% extends 'bboard/layout/basic.html' %}
+
+{% block content %}
+{% for bb in bbs %}
+<div class="b">
+	<h2> {{ bb.title }} </h2>
+	<p> {{ bb.content }}</p>
+	<p><a href="{% url 'by_rubric' bb.rubric.pk %}">
+		{{ bb.rubric.name }}
+	</a></p>
+	{% if bb.img %}<img src="{{ MEDIA_URL }}{{ bb.img }}">
+        {% endif %}
+</div>
+{% endfor %}
+{% endblock %}

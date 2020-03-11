@@ -1,0 +1,27 @@
+{% extends 'bboard/layout/basic.html' %}
+{% block title %} {{ current_rubric.name }} {% endblock %}}
+
+{% block content %}
+<h2>Рубрика : <span class="badge badge-success">{{current_rubric.name }}</span></h2>
+
+<div>
+    <h2> {{ bb.title }}</h2>
+    <p> {{ bb.content }}</p>
+
+</div>
+		{% for bb in bbs %}
+		<div class="select2-container--classic">
+			<div class="row1" style="border-bottom: groove;
+    								 border: ridge;
+  								     border-color: cornflowerblue;
+									 margin-top: 5px">
+				<h2> {{ bb.title }} {{ bb.price }}    </h2>
+				{% if bb.img %}<img src="{{ MEDIA_URL }}{{ bb.img }}">
+    				    {% endif %}
+			<p>{{ bb.content }}</p>
+
+<!--			<p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>-->
+		</div></div>
+		{% endfor %}
+
+{% endblock %}
